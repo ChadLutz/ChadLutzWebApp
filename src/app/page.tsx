@@ -1,7 +1,8 @@
 "use client";
 
-import { Github, Linkedin, ArrowDown, ExternalLink, Menu, X } from 'lucide-react';
+import { Github, Linkedin, ArrowDown, ExternalLink, Menu, X } from '../../node_modules/lucide-react';
 import React, { useState } from 'react';
+import Image from '../../node_modules/next/image';
 
 // A reusable NavLink component that handles smooth scrolling
 const NavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick?: () => void; }) => {
@@ -163,19 +164,21 @@ export default function PortfolioPage() {
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-5 gap-12 items-center">
               <div className="md:col-span-2">
-                <img 
+                <Image 
                   src="/images/portrait.jpg" 
                   alt="A portrait of the developer" 
+                  width={400}
+                  height={400}
                   className="rounded-full w-64 h-64 mx-auto md:w-full md:h-auto md:max-w-sm border-4 border-gray-700 shadow-xl"
                 />
               </div>
               <div className="md:col-span-3">
                 <h2 className="text-4xl font-bold mb-4">About Me</h2>
                 <p className="text-gray-400 text-lg mb-6">
-                  Hello! I'm a passionate developer with a knack for creating dynamic and user-friendly web interfaces. With a background in both design and development, I bridge the gap between aesthetics and functionality. My goal is to always build products that provide a great user experience while being scalable and maintainable.
+                  Hello! I&apos;m a passionate developer with a knack for creating dynamic and user-friendly web interfaces. With a background in both design and development, I bridge the gap between aesthetics and functionality. My goal is to always build products that provide a great user experience while being scalable and maintainable.
                 </p>
                 <p className="text-gray-400 text-lg mb-8">
-                  When I'm not coding, you can find me exploring the latest tech trends, contributing to open-source projects, or seeing new sights.
+                  When I&apos;m not coding, you can find me exploring the latest tech trends, contributing to open-source projects, or seeing new sights.
                 </p>
                 <div className="flex flex-wrap gap-3">
                     <SkillBadge name="TypeScript" />
@@ -203,7 +206,14 @@ export default function PortfolioPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <div key={index} className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg">
-                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                  <div className="relative w-full h-48">
+                    <Image 
+                        src={project.image} 
+                        alt={project.title} 
+                        fill={true}
+                        className="object-cover"
+                    />
+                  </div>
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                     <p className="text-gray-400 mb-4">{project.description}</p>
@@ -225,7 +235,7 @@ export default function PortfolioPage() {
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-4xl font-bold">Get In Touch</h2>
             <p className="text-gray-400 text-lg mt-2 mb-8 max-w-2xl mx-auto">
-              I'm currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind!
+              I&apos;m currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind!
             </p>
             <a 
               href="mailto:chadlutz2@gmail.com" 
