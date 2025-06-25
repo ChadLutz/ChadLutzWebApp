@@ -214,9 +214,11 @@ export default function PortfolioPage() {
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map(tag => <SkillBadge key={tag} name={tag} />)}
                     </div>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold">
-                      View Project <ExternalLink className="ml-2" size={18} />
-                    </a>
+                    {project.link !== '#' && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold">
+                        View Project <ExternalLink className="ml-2" size={18} />
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
