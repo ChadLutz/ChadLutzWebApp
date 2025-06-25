@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Hosting
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bebe4e9c-4d18-49bb-86c9-94e0f05facb3/deploy-status?branch=master)](https://app.netlify.com/projects/chadlutzwebapp/deploys)
+
+This is hosted using Netlify. 
+
 ## Getting Started
 
 First, run the development server:
