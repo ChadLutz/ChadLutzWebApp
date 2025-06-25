@@ -4,7 +4,7 @@ import { Github, Linkedin, ArrowDown, ExternalLink, Menu, X } from '../../node_m
 import React, { useState } from 'react';
 import Image from '../../node_modules/next/image';
 
-// A reusable NavLink component that handles smooth scrolling
+
 const NavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick?: () => void; }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -13,7 +13,7 @@ const NavLink = ({ href, children, onLinkClick }: { href: string; children: Reac
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
-    // Close mobile menu on click
+    
     if (onLinkClick) {
       onLinkClick();
     }
@@ -83,7 +83,7 @@ export default function PortfolioPage() {
             <NavLink href="#projects">Projects</NavLink>
             <NavLink href="#contact">Contact</NavLink>
             <a 
-            href="/ChadLutz-Resume.pdf" // Place your resume.pdf in the 'public' folder
+            href="/ChadLutz-Resume.pdf"
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
@@ -105,7 +105,7 @@ export default function PortfolioPage() {
           <NavLink href="#projects" onLinkClick={closeMenu}>Projects</NavLink>
           <NavLink href="#contact" onLinkClick={closeMenu}>Contact</NavLink>
           <a 
-            href="/ChadLutz-Resume.pdf" // Place your resume.pdf in the 'public' folder
+            href="/ChadLutz-Resume.pdf"
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
@@ -262,7 +262,7 @@ export default function PortfolioPage() {
           background-image: linear-gradient(rgba(31, 41, 55, 0.05) 1px, transparent 1px), linear-gradient(to right, rgba(31, 41, 55, 0.05) 1px, transparent 1px);
           background-size: 2rem 2rem;
         }
-        /* Prevent scroll on body when mobile menu is open */
+        
         body {
           overflow: ${isMenuOpen ? 'hidden' : 'auto'};
         }
