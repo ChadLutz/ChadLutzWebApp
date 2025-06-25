@@ -3,6 +3,7 @@
 import { Github, Linkedin, ArrowDown, ExternalLink, Menu, X } from '../../node_modules/lucide-react';
 import React, { useState } from 'react';
 import Image from '../../node_modules/next/image';
+import InteractiveEarth from './InteractiveEarth';
 
 
 const NavLink = ({ href, children, onLinkClick }: { href: string; children: React.ReactNode; onLinkClick?: () => void; }) => {
@@ -68,6 +69,11 @@ export default function PortfolioPage() {
 
   const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+  };
   
   return (
     <div className="bg-gray-900 text-white font-sans leading-relaxed">
@@ -115,8 +121,11 @@ export default function PortfolioPage() {
 
 
       <main className={`${isMenuOpen ? 'blur-sm' : ''}`}>
-        <section id="hero" className="min-h-screen flex items-center bg-grid-gray-800/20">
-          <div className="container mx-auto px-6 text-center">
+        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+          <InteractiveEarth/>
+
+          <div className="relative z-10 container mx-auto px-6 text-center">
             <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Creative Developer</span>
               <span className="block text-gray-300 mt-2">Crafting Digital Experiences</span>
@@ -136,22 +145,24 @@ export default function PortfolioPage() {
               </a>
               <a
                 href="#projects"
+                onClick={(e) => smoothScroll(e, 'projects')}
                 className="bg-gray-700/50 border border-gray-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300"
               >
                 View My Work
               </a>
               <a
                 href="#contact"
+                onClick={(e) => smoothScroll(e, 'contact')}
                 className="bg-gray-700/50 border border-gray-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300"
               >
                 Get In Touch
               </a>
             </div>
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-                <a href="#about" aria-label="Scroll down">
+          </div>
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <a href="#about" aria-label="Scroll down" onClick={(e) => smoothScroll(e, 'about')}>
                     <ArrowDown className="w-8 h-8 text-gray-500 animate-bounce" />
                 </a>
-            </div>
           </div>
         </section>
 
