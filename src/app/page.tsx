@@ -71,13 +71,12 @@ export default function PortfolioPage() {
   
   return (
     <div className="bg-gray-900 text-white font-sans leading-relaxed">
-      {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <a href="#" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
             Chad Lutz
           </a>
-          {/* Desktop Nav */}
+
           <nav className="hidden md:flex items-center space-x-8">
             <NavLink href="#about">About</NavLink>
             <NavLink href="#projects">Projects</NavLink>
@@ -91,14 +90,12 @@ export default function PortfolioPage() {
             Resume
           </a>
           </nav>
-          {/* Mobile Menu Button */}
           <button onClick={handleMenuToggle} className="md:hidden z-50">
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile Menu */}
       <div className={`md:hidden fixed inset-0 bg-gray-900 z-40 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
         <nav className="flex flex-col items-center justify-center h-full text-2xl space-y-8">
           <NavLink href="#about" onLinkClick={closeMenu}>About</NavLink>
@@ -118,7 +115,6 @@ export default function PortfolioPage() {
 
 
       <main className={`${isMenuOpen ? 'blur-sm' : ''}`}>
-        {/* Hero Section */}
         <section id="hero" className="min-h-screen flex items-center bg-grid-gray-800/20">
           <div className="container mx-auto px-6 text-center">
             <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
@@ -159,7 +155,6 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* About Section */}
         <section id="about" className="py-20 md:py-32 bg-gray-900">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-5 gap-12 items-center">
@@ -196,7 +191,6 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects" className="py-20 md:py-32 bg-gray-800/50 bg-grid-gray-700/20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -230,7 +224,6 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section id="contact" className="py-20 md:py-32">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-4xl font-bold">Get In Touch</h2>
@@ -247,7 +240,6 @@ export default function PortfolioPage() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="bg-gray-800/50 border-t border-gray-700 py-8">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">&copy; {new Date().getFullYear()} Chad Lutz. All Rights Reserved.</p>
